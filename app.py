@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config (layout="wide")
+st.set_page_config (layout="centered")
 st.title ("Welcome to Shape calculator")
 st.header ("Calculate every singe value on just one click")
 
