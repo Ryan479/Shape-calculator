@@ -4,7 +4,7 @@ st.set_page_config (layout="centered")
 st.title ("Welcome to Shape calculator")
 st.header ("Calculate every singe value on just one click")
 
-typecal = st.radio ("Select the type you want to calculate", ("Square, Square roots, Cubes, Cube roots", "Shapes"))
+typecal = st.radio ("Select the type you want to calculate", ( "Shapes", "Square, Square roots, Cubes, Cube roots"))
 if typecal == ("Square, Square roots, Cubes, Cube roots"):
     typesq = st.radio ("Select what you want to calculate", ("Squares", "Square roots", "Cubes", "Cube roots"))
     
