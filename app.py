@@ -1,22 +1,22 @@
 import streamlit as st
 
 st.set_page_config (layout="centered")
-st.title ("Welcome to Shape calculator")
+st.title ("Welcome to Shapes, Squares, Square roots, Cubes, Cube roots calculator",)
 st.header ("Calculate every singe value on just one click")
 
-typecal = st.radio ("Select the type you want to calculate", ( "Shapes", "Square, Square roots, Cubes, Cube roots"))
+typecal = st.radio ("Select the type you want to calculate", ("Shapes", "Squares, Square roots, Cubes, Cube roots", "Triangles"))
 if typecal == ("Square, Square roots, Cubes, Cube roots"):
     typesq = st.radio ("Select what you want to calculate", ("Squares", "Square roots", "Cubes", "Cube roots"))
     
     if typesq == ("Squares"):
         squarenuber = st.number_input ("Please enter the number whose square you want to find: ")
-        square = squarenuber * squarenuber
+        square = squarenuber ** 2
     elif typesq == ("Square roots"):
         squarerootnumber = st.number_input ("Please enter the number whose square root you want to find: ")
         squareroot = squarerootnumber ** 0.5
     elif typesq == ("Cubes"):
         cubenumber = st.number_input ("Please enter the number whose cube you want to find: ")
-        cube = cubenumber * cubenumber * cubenumber
+        cube = cubenumber ** 3
     elif typesq == ("Cube roots"):
         cuberootnumber = st.number_input ("Please enter the number whose cube root you wnat to find: ")
         cuberoot = cuberootnumber ** (1/3)
@@ -37,13 +37,14 @@ if typecal == ("Square, Square roots, Cubes, Cube roots"):
 
 
 elif typecal == ("Shapes"):
-    shape = st.radio ("Select Your Shape:", ("Square", "Rectangle", "Cube", "Cuboid", "Circle", "Sphere", "Cylinder", "Trapezium", "General Quadrilateral"))
+    shape = st.radio ("Select Your Shape:", ("Triangle", "Square", "Rectangle", "Cube", "Cuboid", "Circle", "Sphere", "Cylinder", "Trapezium", "General Quadrilateral"))
     value = st.radio ("Choose the unit", ("Millimeters", "Centimeters", "Inch" ,"Meters" ,"Kilometers"))
+
 
     if shape == ("Square"):
         lengthofsquare = st.number_input ("Please enter the length of your Square: ")
         try:
-            areaofsquare = lengthofsquare * lengthofsquare
+            areaofsquare = lengthofsquare ** 2
             perimeterofsquare = lengthofsquare * 4
 
         except:
@@ -64,10 +65,10 @@ elif typecal == ("Shapes"):
     elif shape ==("Cube"):
         lengthofcube = st.number_input("Please enter the length of your Cube: ")
         try:
-            volumeofcube = lengthofcube * lengthofcube * lengthofcube
-            surfaceareaofcube = 6 * (lengthofcube * lengthofcube)
+            volumeofcube = lengthofcube ** 3
+            surfaceareaofcube = 6 * lengthofcube ** 2
             lateralsurfaceareaofcube = 4 * (lengthofcube * lengthofcube)
-            surfaceareaofonesideofcube = lengthofcube * lengthofcube
+            surfaceareaofonesideofcube = lengthofcube ** 2
             perimeterofonesideofcube = 4 * lengthofcube
             if value == ("Inch"):
                 valueofcubeinliters = volumeofcube * 0.016387064
@@ -113,7 +114,7 @@ elif typecal == ("Shapes"):
     elif shape ==("Circle"):
         radiusofcircle = st.number_input("Please enter the radius of your circle: ")
         try:
-            areaofcircle = 22/7 * radiusofcircle * radiusofcircle 
+            areaofcircle = 22/7 * radiusofcircle ** 2
             circumferenceofcircle = 2 * 22/7 * radiusofcircle
         
         except:
@@ -123,8 +124,8 @@ elif typecal == ("Shapes"):
     elif shape ==("Sphere"):
         radiusofsphere = st.number_input("Please enter the radius of shpere: ")
         try:
-            surfaceareaofsphere = 4 * 22/7 * radiusofsphere * radiusofsphere
-            volumeofsphere = (4 % 3) * 22/7 * radiusofsphere * radiusofsphere * radiusofsphere
+            surfaceareaofsphere = 4 * 22/7 * radiusofsphere ** 2
+            volumeofsphere = (4 % 3) * 22/7 * radiusofsphere ** 3
             if value == ("Inch"):
                 valueofsphereinliters = volumeofsphere * 0.016387064
             elif value == ("Centimeters"):
@@ -146,7 +147,7 @@ elif typecal == ("Shapes"):
         try:
             surfaceareaofcylinder = 2 * 22/7 * radiusofcylinder * (radiusofcylinder + heightofcylinder)
             curvedsurfaceareaofcylinder = 2 * 22/7 * radiusofcylinder * heightofcylinder
-            volumeofcylinder = 22/7 * radiusofcylinder * radiusofcylinder * heightofcylinder
+            volumeofcylinder = 22/7 * radiusofcylinder ** 2 * heightofcylinder
             if value == ("Inch"):
                 valueofcylinderinliters = volumeofcylinder * 0.016387064
             elif value == ("Centimeters"):
@@ -227,4 +228,35 @@ elif typecal == ("Shapes"):
             st.write ("Area =", areaoftrapezium, value, "sq")
         
         elif shape == ("General Quadrilateral"):
-            st.write ("Area =", areaoftrapezium, value, "sq")
+            st.write ("Area =", areaofgeneralquadrilateral, value, "sq")
+
+
+if typecal == ("Triangles"):
+    value = st.radio ("Choose the unit", ("Millimeters", "Centimeters", "Inch" ,"Meters" ,"Kilometers"))
+    typetriangle = st.radio ("Select the type of triangle", ("Right angled Triangle", "Equilateral Triangle (every side equal)", "Isosceles Triangle (2 sides equal)", "Scalene Tringle (no equal sides)",))
+    
+    if typetriangle == ("Right angled Triangle"):
+        heightofrightangletriangle = st.number_input ("Please enter the height of Right Angle Triange")
+        baseofrightangletriangle = st.number_input ("Please enter the base of Right Angle Triangle")
+        areaofrightangletriangle = 1/2 * baseofrightangletriangle * heightofrightangletriangle
+        hypotenuseofrightangletriangle = (heightofrightangletriangle ** 2 + baseofrightangletriangle ** 2) ** 0.5 
+        perimeterofrightangleoftriangle = heightofrightangletriangle + baseofrightangletriangle + hypotenuseofrightangletriangle
+        
+
+
+    
+    if (st.button("Calculate values")):
+        if typetriangle == ("Right angled Triangle"):
+            st.write ("Area =", areaofrightangletriangle, value, "sq")
+            st.write ("Perimeter =", perimeterofrightangleoftriangle, value)
+            st.write ("Hypotenuse =", hypotenuseofrightangletriangle, value)
+
+
+
+    
+    
+    
+    
+    
+    
+        
