@@ -7,7 +7,7 @@ st.title ("Welcome to Shapes, Squares, Square roots, Cubes, Cube roots calculato
 st.header ("Calculate every singe value on just one click")
 
 typecal = st.radio ("Select the type you want to calculate", ("Shapes", "Squares, Square roots, Cubes, Cube roots", "Triangles"))
-if typecal == ("Square, Square roots, Cubes, Cube roots"):
+if typecal == ("Squares, Square roots, Cubes, Cube roots"):
     typesq = st.radio ("Select what you want to calculate", ("Squares", "Square roots", "Cubes", "Cube roots"))
     
     if typesq == ("Squares"):
