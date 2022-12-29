@@ -6,7 +6,7 @@ st.set_page_config (layout="centered")
 st.title ("Welcome to Shapes, Squares, Square roots, Cubes, Cube roots calculator",)
 st.header ("Calculate every singe value on just one click")
 
-typecal = st.radio ("Select the type you want to calculate", ("Shapes", "Squares, Square roots, Cubes, Cube roots", "Triangles"))
+typecal = st.radio ("Select the type you want to calculate", ("Shapes", "Squares, Square roots, Cubes, Cube roots"))
 if typecal == ("Squares, Square roots, Cubes, Cube roots"):
     typesq = st.radio ("Select what you want to calculate", ("Squares", "Square roots", "Cubes", "Cube roots"))
     
@@ -39,7 +39,7 @@ if typecal == ("Squares, Square roots, Cubes, Cube roots"):
 
 
 elif typecal == ("Shapes"):
-    shape = st.radio ("Select Your Shape:", ("Square", "Rectangle", "Cube", "Cuboid", "Circle", "Sphere", "Cylinder", "Trapezium", "General Quadrilateral"))
+    shape = st.radio ("Select Your Shape:", ("Square", "Rectangle", "Cube", "Cuboid", "Circle", "Sphere", "Cylinder", "Trapezium", "General Quadrilateral", "Triangle"))
     value = st.radio ("Choose the unit", ("Millimeters", "Centimeters", "Inch" ,"Meters" ,"Kilometers"))
 
 
@@ -185,6 +185,74 @@ elif typecal == ("Shapes"):
         except:
             st.text ("Enter a value")
     
+    elif shape == ("Triangles"):
+        typetriangle = st.radio ("Select the type of triangle", ("Right angled Triangle", "Equilateral Triangle (every side equal)", "Isosceles Triangle (2 sides equal)", "Scalene Tringle (no equal sides)"))
+        
+        if typetriangle == ("Right angled Triangle"):
+            try:
+                heightofrightangletriangle = st.number_input ("Please enter the height of Right Angle Triange")
+                baseofrightangletriangle = st.number_input ("Please enter the base of Right Angle Triangle")
+                areaofrightangletriangle = 1/2 * baseofrightangletriangle * heightofrightangletriangle
+                hypotenuseofrightangletriangle = (heightofrightangletriangle ** 2 + baseofrightangletriangle ** 2) ** 0.5 
+                perimeterofrightangleoftriangle = heightofrightangletriangle + baseofrightangletriangle + hypotenuseofrightangletriangle
+                angle1rightangledtriangle = degrees(acos((heightofrightangletriangle * heightofrightangletriangle + baseofrightangletriangle * baseofrightangletriangle - hypotenuseofrightangletriangle * hypotenuseofrightangletriangle) / (2 * heightofrightangletriangle * baseofrightangletriangle)))
+                angle2rightangledtriangle = degrees(acos((baseofrightangletriangle * baseofrightangletriangle + hypotenuseofrightangletriangle * hypotenuseofrightangletriangle - heightofrightangletriangle * heightofrightangletriangle) / (2 * baseofrightangletriangle * hypotenuseofrightangletriangle)))
+                angle3rightangletriangle = 180 - (angle1rightangledtriangle + angle2rightangledtriangle)
+                
+            except:
+                print ("Enter a value")
+                
+        
+        elif typetriangle == ("Equilateral Triangle (every side equal)"):
+            
+            try:
+                asideofequilateraltriangle = st.number_input ("Please enter the length of your triangle")
+                perimeterofequilateraltriangle = asideofequilateraltriangle * 3
+                equi = 1/2 * (asideofequilateraltriangle + asideofequilateraltriangle + asideofequilateraltriangle)
+                areaofequilateraltriangle = (equi*(equi - asideofequilateraltriangle)*(equi - asideofequilateraltriangle)*(equi - asideofequilateraltriangle)) ** 0.5 
+                angle1ofequilateraltriangle = 180 / 3
+                angle2ofequilateraltriangle = 180 / 3
+                angle3ofequilateraltriangle = 180 / 3
+                heightofequilateraltriangle = (areaofequilateraltriangle * 2) / asideofequilateraltriangle
+                
+            except:
+                print ("Enter a value")
+                
+        
+        elif typetriangle == ("Isosceles Triangle (2 sides equal)"):
+
+            try:
+                asideofisocelesestriangle = st.number_input ("Please enter length a of your triangle")
+                bsideofisocelesestriangle = st.number_input ("Please enter length b of your triangle")
+                csideofisocelesestriangle = st.number_input ("Please enter the length c of your triangle")
+                perimeterofisocelesestriangle = asideofisocelesestriangle + bsideofisocelesestriangle + csideofisocelesestriangle
+                isoc = 1/2 * (asideofisocelesestriangle + bsideofisocelesestriangle + csideofisocelesestriangle)
+                areaofisocelesestriangle = (isoc*(isoc - asideofisocelesestriangle)*(isoc - bsideofisocelesestriangle)*(isoc - csideofisocelesestriangle)) ** 0.5
+                angle1ofisocelesestriangle = degrees(acos((bsideofisocelesestriangle * bsideofisocelesestriangle + csideofisocelesestriangle * csideofisocelesestriangle - asideofisocelesestriangle * asideofisocelesestriangle) / (2 * bsideofisocelesestriangle * csideofisocelesestriangle)))
+                angle2ofisocelesestriangle = degrees(acos((csideofisocelesestriangle * csideofisocelesestriangle + asideofisocelesestriangle * asideofisocelesestriangle - bsideofisocelesestriangle * bsideofisocelesestriangle) / (2 * csideofisocelesestriangle * asideofisocelesestriangle)))
+                angle3ofisocelesestriangle = 180 - (angle1ofisocelesestriangle + angle2ofisocelesestriangle)
+                heightofisocelesestriangle = (areaofisocelesestriangle * 2) / csideofisocelesestriangle
+                
+            except:
+                print ("Enter a value")
+        
+        
+        elif typetriangle == ("Scalene Tringle (no equal sides)"):
+            try:
+                asideofscalenetriangle = st.number_input ("Please enter length a of your triangle")
+                bsideofscalenetriangle = st.number_input ("Please enter length b of your triangle")
+                csideofscalenetriangle = st.number_input ("Please enter the length c of your triangle")
+                perimeterofscalenetriangle = asideofscalenetriangle + bsideofscalenetriangle + csideofscalenetriangle
+                scal = 1/2 * (asideofscalenetriangle + bsideofscalenetriangle + csideofscalenetriangle)
+                areaofscalenetriangle = (scal*(scal - asideofscalenetriangle)*(scal - bsideofscalenetriangle)*(scal - csideofscalenetriangle)) ** 0.5
+                angle1ofscalenetriangle = degrees(acos((bsideofscalenetriangle * bsideofscalenetriangle + csideofscalenetriangle * csideofscalenetriangle - asideofscalenetriangle * asideofscalenetriangle) / (2 * bsideofscalenetriangle * csideofscalenetriangle)))
+                angle2ofscalenetriangle = degrees(acos((csideofscalenetriangle * csideofscalenetriangle + asideofscalenetriangle * asideofscalenetriangle - bsideofscalenetriangle * bsideofscalenetriangle) / (2 * csideofscalenetriangle * csideofscalenetriangle)))
+                angle3ofscalenetriangle = 180 - (angle1ofscalenetriangle + angle2ofscalenetriangle)
+                heightofscalenetriangle = (areaofscalenetriangle * 2) / csideofscalenetriangle
+                
+            except:
+                print ("Enter a value")
+    
     
     if (st.button("Calculate values")):
         if shape == ("Square"):
@@ -231,110 +299,39 @@ elif typecal == ("Shapes"):
         
         elif shape == ("General Quadrilateral"):
             st.write ("Area =", areaofgeneralquadrilateral, value, "sq")
-
-
-if typecal == ("Triangles"):
-    value = st.radio ("Choose the unit", ("Millimeters", "Centimeters", "Inch" ,"Meters" ,"Kilometers"))
-    typetriangle = st.radio ("Select the type of triangle", ("Right angled Triangle", "Equilateral Triangle (every side equal)", "Isosceles Triangle (2 sides equal)", "Scalene Tringle (no equal sides)"))
-    
-    if typetriangle == ("Right angled Triangle"):
-        try:
-            heightofrightangletriangle = st.number_input ("Please enter the height of Right Angle Triange")
-            baseofrightangletriangle = st.number_input ("Please enter the base of Right Angle Triangle")
-            areaofrightangletriangle = 1/2 * baseofrightangletriangle * heightofrightangletriangle
-            hypotenuseofrightangletriangle = (heightofrightangletriangle ** 2 + baseofrightangletriangle ** 2) ** 0.5 
-            perimeterofrightangleoftriangle = heightofrightangletriangle + baseofrightangletriangle + hypotenuseofrightangletriangle
-            angle1rightangledtriangle = degrees(acos((heightofrightangletriangle * heightofrightangletriangle + baseofrightangletriangle * baseofrightangletriangle - hypotenuseofrightangletriangle * hypotenuseofrightangletriangle) / (2 * heightofrightangletriangle * baseofrightangletriangle)))
-            angle2rightangledtriangle = degrees(acos((baseofrightangletriangle * baseofrightangletriangle + hypotenuseofrightangletriangle * hypotenuseofrightangletriangle - heightofrightangletriangle * heightofrightangletriangle) / (2 * baseofrightangletriangle * hypotenuseofrightangletriangle)))
-            angle3rightangletriangle = 180 - (angle1rightangledtriangle + angle2rightangledtriangle)
-            
-
-        except:
-            print ("Enter a value")
-    
-    elif typetriangle == ("Equilateral Triangle (every side equal)"):
-        try:
-            asideofequilateraltriangle = st.number_input ("Please enter the length of your triangle")
-            perimeterofequilateraltriangle = asideofequilateraltriangle * 3
-            equi = 1/2 * (asideofequilateraltriangle + asideofequilateraltriangle + asideofequilateraltriangle)
-            areaofequilateraltriangle = (equi*(equi - asideofequilateraltriangle)*(equi - asideofequilateraltriangle)*(equi - asideofequilateraltriangle)) ** 0.5 
-            angle1ofequilateraltriangle = 180 / 3
-            angle2ofequilateraltriangle = 180 / 3
-            angle3ofequilateraltriangle = 180 / 3
-            heightofequilateraltriangle = (areaofequilateraltriangle * 2) / asideofequilateraltriangle
         
-        except:
-            print ("Enter a value")
-    
-    elif typetriangle == ("Isosceles Triangle (2 sides equal)"):
-        try:
-            asideofisocelesestriangle = st.number_input ("Please enter length a of your triangle")
-            bsideofisocelesestriangle = st.number_input ("Please enter length b of your triangle")
-            csideofisocelesestriangle = st.number_input ("Please enter the length c of your triangle")
-            perimeterofisocelesestriangle = asideofisocelesestriangle + bsideofisocelesestriangle + csideofisocelesestriangle
-            isoc = 1/2 * (asideofisocelesestriangle + bsideofisocelesestriangle + csideofisocelesestriangle)
-            areaofisocelesestriangle = (isoc*(isoc - asideofisocelesestriangle)*(isoc - bsideofisocelesestriangle)*(isoc - csideofisocelesestriangle)) ** 0.5
-            angle1ofisocelesestriangle = degrees(acos((bsideofisocelesestriangle * bsideofisocelesestriangle + csideofisocelesestriangle * csideofisocelesestriangle - asideofisocelesestriangle * asideofisocelesestriangle) / (2 * bsideofisocelesestriangle * csideofisocelesestriangle)))
-            angle2ofisocelesestriangle = degrees(acos((csideofisocelesestriangle * csideofisocelesestriangle + asideofisocelesestriangle * asideofisocelesestriangle - bsideofisocelesestriangle * bsideofisocelesestriangle) / (2 * csideofisocelesestriangle * asideofisocelesestriangle)))
-            angle3ofisocelesestriangle = 180 - (angle1ofisocelesestriangle + angle2ofisocelesestriangle)
-            heightofisocelesestriangle = (areaofisocelesestriangle * 2) / csideofisocelesestriangle
-        
-        except:
-            print ("Enter a value")
-    
-    elif typetriangle == ("Scalene Tringle (no equal sides)"):
-        try:
-            asideofscalenetriangle = st.number_input ("Please enter length a of your triangle")
-            bsideofscalenetriangle = st.number_input ("Please enter length b of your triangle")
-            csideofscalenetriangle = st.number_input ("Please enter the length c of your triangle")
-            perimeterofscalenetriangle = asideofscalenetriangle + bsideofscalenetriangle + csideofscalenetriangle
-            scal = 1/2 * (asideofscalenetriangle + bsideofscalenetriangle + csideofscalenetriangle)
-            areaofscalenetriangle = (scal*(scal - asideofscalenetriangle)*(scal - bsideofscalenetriangle)*(scal - csideofscalenetriangle)) ** 0.5
-            angle1ofscalenetriangle = degrees(acos((bsideofscalenetriangle * bsideofscalenetriangle + csideofscalenetriangle * csideofscalenetriangle - asideofscalenetriangle * asideofscalenetriangle) / (2 * bsideofscalenetriangle * csideofscalenetriangle)))
-            angle2ofscalenetriangle = degrees(acos((csideofscalenetriangle * csideofscalenetriangle + asideofscalenetriangle * asideofscalenetriangle - bsideofscalenetriangle * bsideofscalenetriangle) / (2 * csideofscalenetriangle * csideofscalenetriangle)))
-            angle3ofscalenetriangle = 180 - (angle1ofscalenetriangle + angle2ofscalenetriangle)
-            heightofscalenetriangle = (areaofscalenetriangle * 2) / csideofscalenetriangle
-        except:
-            print ("Enter a value")
-
-    
-    
-
-
-
-    
-    if (st.button("Calculate values")):
-        if typetriangle == ("Right angled Triangle"):
-            st.write ("Area =", areaofrightangletriangle, value, "sq")
-            st.write ("Perimeter =", perimeterofrightangleoftriangle, value)
-            st.write ("Hypotenuse =", hypotenuseofrightangletriangle, value)
-            st.write ("Angle 1 =", angle1rightangledtriangle,"°" )
-            st.write ("Angle 2 =", angle2rightangledtriangle, "°")
-            st.write ("Angle 3 =", angle3rightangletriangle, "°")
-        
-        elif typetriangle == ("Equilateral Triangle (every side equal)"):
-            st.write ("Area =", areaofequilateraltriangle, value, "sq")
-            st.write ("Perimeter =", perimeterofequilateraltriangle, value)
-            st.write ("Angle 1 =", angle1ofequilateraltriangle, "°")
-            st.write ("Angle 2 =", angle2ofequilateraltriangle, "°")
-            st.write ("Angle 3 =", angle3ofequilateraltriangle, "°")
-            st.write ("Height =", heightofequilateraltriangle, value)
-        
-        elif typetriangle == ("Isosceles Triangle (2 sides equal)"):
-            st.write ("Area =", areaofisocelesestriangle, value, "sq")
-            st.write ("Perimeter =", perimeterofisocelesestriangle, value)
-            st.write ("Angle 1 =", angle1ofisocelesestriangle, "°")
-            st.write ("Angle 2 =", angle2ofisocelesestriangle, "°")
-            st.write ("Angle 3 =", angle3ofisocelesestriangle, "°")
-            st.write ("Height =", heightofisocelesestriangle, value)
-        
-        elif typetriangle == ("Scalene Tringle (no equal sides)"):
-            st.write ("Area =", areaofscalenetriangle, value, "sq")
-            st.write ("Perimeter =", perimeterofscalenetriangle, value)
-            st.write ("Angle 1 =", angle1ofscalenetriangle, "°")
-            st.write ("Angle 2 =", angle2ofscalenetriangle, "°")
-            st.write ("Angle 3 =", angle3ofscalenetriangle, "°")
-            st.write ("Height =", heightofscalenetriangle, value)
+        elif shape == ("Triangle"):
+            if typetriangle == ("Right angled Triangle"):
+                st.write ("Area =", areaofrightangletriangle, value, "sq")
+                st.write ("Perimeter =", perimeterofrightangleoftriangle, value)
+                st.write ("Hypotenuse =", hypotenuseofrightangletriangle, value)
+                st.write ("Angle 1 =", angle1rightangledtriangle,"°" )
+                st.write ("Angle 2 =", angle2rightangledtriangle, "°")
+                st.write ("Angle 3 =", angle3rightangletriangle, "°")
+                
+            elif typetriangle == ("Equilateral Triangle (every side equal)"):
+                st.write ("Area =", areaofequilateraltriangle, value, "sq")
+                st.write ("Perimeter =", perimeterofequilateraltriangle, value)
+                st.write ("Angle 1 =", angle1ofequilateraltriangle, "°")
+                st.write ("Angle 2 =", angle2ofequilateraltriangle, "°")
+                st.write ("Angle 3 =", angle3ofequilateraltriangle, "°")
+                st.write ("Height =", heightofequilateraltriangle, value)
+                
+            elif typetriangle == ("Isosceles Triangle (2 sides equal)"):
+                st.write ("Area =", areaofisocelesestriangle, value, "sq")
+                st.write ("Perimeter =", perimeterofisocelesestriangle, value)
+                st.write ("Angle 1 =", angle1ofisocelesestriangle, "°")
+                st.write ("Angle 2 =", angle2ofisocelesestriangle, "°")
+                st.write ("Angle 3 =", angle3ofisocelesestriangle, "°")
+                st.write ("Height =", heightofisocelesestriangle, value)
+                
+            elif typetriangle == ("Scalene Tringle (no equal sides)"):
+                st.write ("Area =", areaofscalenetriangle, value, "sq")
+                st.write ("Perimeter =", perimeterofscalenetriangle, value)
+                st.write ("Angle 1 =", angle1ofscalenetriangle, "°")
+                st.write ("Angle 2 =", angle2ofscalenetriangle, "°")
+                st.write ("Angle 3 =", angle3ofscalenetriangle, "°")
+                st.write ("Height =", heightofscalenetriangle, value)
 
             
         
