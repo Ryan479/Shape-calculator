@@ -185,7 +185,7 @@ elif typecal == ("Shapes"):
         except:
             st.text ("Enter a value")
     
-    elif shape == ("Triangles"):
+    elif shape == ("Triangle"):
         typetriangle = st.radio ("Select the type of triangle", ("Right angled Triangle", "Equilateral Triangle (every side equal)", "Isosceles Triangle (2 sides equal)", "Scalene Tringle (no equal sides)"))
         
         if typetriangle == ("Right angled Triangle"):
